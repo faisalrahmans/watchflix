@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275157779949",
+    "project_id": "watchflix-acaf4",
+    "storage_bucket": "watchflix-acaf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275157779949:android:8c3436de1af1b9c01513e4",
+        "android_client_info": {
+          "package_name": "com.example.watchflix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5_fKL_zwCPYr5Xe_2dfNK-JijVNk2sq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
