@@ -23,8 +23,30 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Watchflix',
       theme: ThemeData(primarySwatch: Colors.red),
-      home: LoginScreen(),
+      home: SplashScreen(),
       getPages: RouteArr.pages,
+    );
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Future.delayed(
+      Duration(seconds: 4),
+      () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      },
+    );
+
+    return Scaffold(
+      backgroundColor: Color(0xFF1E1E1E),
+      body: Center(
+        child: Image.asset('assets/images/logo_watchflix.png'),
+      ),
     );
   }
 }

@@ -22,8 +22,21 @@ class _LoginScreenState extends State<LoginScreen> {
       await _firebaseAuth
           .signInWithEmailAndPassword(
               email: _emailController.text, password: _passwordController.text)
-          .then((value) => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => Home())));
+          .then((value) => {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Login successfully!'),
+                    backgroundColor: Colors.red[400],
+                  ),
+                ),
+                Future.delayed(
+                  Duration(seconds: 4),
+                  () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Home()));
+                  },
+                )
+              });
     } catch (e) {
       print(e);
       SnackBar(content: Text(e.toString()));
@@ -46,9 +59,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 180,
               ),
               const SizedBox(height: 10),
-              const SizedBox(
-                height: 10,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26.0,
+                  ),
+                ),
               ),
+              SizedBox(height: 30),
               Container(
                 child: TextField(
                   controller: _emailController,

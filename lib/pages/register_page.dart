@@ -20,8 +20,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       await _firebaseAuth
           .createUserWithEmailAndPassword(
               email: _emailController.text, password: _passwordController.text)
-          .then((value) => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => LoginScreen())));
+          .then((value) => ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Account created successfully!'),
+                  backgroundColor: Colors.red[400],
+                ),
+              ));
     } catch (e) {
       print(e);
       SnackBar(content: Text(e.toString()));
@@ -44,8 +48,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 width: 180,
               ),
               const SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Create an account',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26.0,
+                  ),
+                ),
+              ),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               Container(
                 child: TextField(
