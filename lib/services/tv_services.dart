@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:watchflix/model/tvModel.dart';
+import 'package:watchflix/model/tv_model.dart';
 
 class TvServices {
   Future<List<Tvmodel>?> getAllTv(String endpoint) async {
@@ -44,7 +44,7 @@ class TvServices {
   }
 
   Future<List<Tvmodel>?> getTvPopular() async {
-    return getAllTv("tv/popular");
+    return getAllTv("movie/popular");
   }
 
   Future<List<Tvmodel>?> getTvTopRated() async {

@@ -2,13 +2,13 @@ import 'dart:convert';
 
 class Tvmodel {
   int id;
-  String backDrop;
+  String backdropPath;
   String posterPath;
   String name;
 
   Tvmodel({
     required this.id,
-    required this.backDrop,
+    required this.backdropPath,
     required this.posterPath,
     required this.name,
   });
@@ -16,7 +16,7 @@ class Tvmodel {
   factory Tvmodel.fromJson(Map<String, dynamic> json) {
     return Tvmodel(
       id: json["id"],
-      backDrop: json["backdrop_path"],
+      backdropPath: json["backdrop_path"],
       posterPath: json["poster_path"],
       name: json["name"],
     );
@@ -25,7 +25,7 @@ class Tvmodel {
   Map<String, dynamic> toJson() {
     return {
       "id": id,
-      "backDrop": backDrop,
+      "backdropPath": backdropPath,
       "posterPath": posterPath,
       "name": name,
     };

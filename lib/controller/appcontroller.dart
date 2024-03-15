@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:watchflix/model/postmodel.dart';
-import 'package:watchflix/model/tvModel.dart';
+import 'package:watchflix/model/tv_model.dart';
 import 'package:watchflix/services/services.dart';
 import 'package:watchflix/services/tv_services.dart';
 
@@ -8,17 +8,17 @@ class AppController extends GetxController {
   var getNowPlayingPosts = <Postmodel>[].obs;
   var getTopratedPosts = <Postmodel>[].obs;
   var getTrendingPosts = <Postmodel>[].obs;
-  var getTvAiringToday = <Tvmodel>[].obs;
   var getTvOnAir = <Tvmodel>[].obs;
   var getTvPopular = <Tvmodel>[].obs;
   var getTvTopRated = <Tvmodel>[].obs;
+  var getTvAiringToday = <Tvmodel>[].obs;
   var postloadingNowPlaying = true.obs;
   var postloadingToprated = true.obs;
   var postloadingTrending = true.obs;
-  var tvloadingAiringToday = true.obs;
   var tvloadingOnAir = true.obs;
   var tvloadingPopular = true.obs;
   var tvloadingTopRated = true.obs;
+  var tvloadingAiringToday = true.obs;
   Services services = Services();
   TvServices tvServices = TvServices();
 
@@ -28,10 +28,10 @@ class AppController extends GetxController {
     callNowPlayingMethod();
     callTopratedMethod();
     callTrendingMethod();
-    callTvAiringTodayMethod();
     callTvOnAirMethod();
     callTvPopularMethod();
     callTvTopRatedMethod();
+    callTvAiringTodayMethod();
   }
 
   void callNowPlayingMethod() async {
@@ -79,21 +79,6 @@ class AppController extends GetxController {
     }
   }
 
-  void callTvAiringTodayMethod() async {
-    try {
-      tvloadingAiringToday.value = true;
-      var result = await tvServices.getTvAiringToday();
-      if (result != null) {
-        getTvAiringToday.assignAll(result);
-      } else {
-        print("Result for Airing Today is null");
-      }
-    } finally {
-      tvloadingAiringToday.value = false;
-      update();
-    }
-  }
-
   void callTvOnAirMethod() async {
     try {
       tvloadingOnAir.value = true;
@@ -101,7 +86,7 @@ class AppController extends GetxController {
       if (result != null) {
         getTvOnAir.assignAll(result);
       } else {
-        print("Result for On Air is null");
+        print("Result for callTvOnAirMethod is null");
       }
     } finally {
       tvloadingOnAir.value = false;
@@ -116,14 +101,14 @@ class AppController extends GetxController {
       if (result != null) {
         getTvPopular.assignAll(result);
       } else {
-        print("Result for TV Popular is null");
+        print("Result for callTvPopularMethod is null");
       }
     } finally {
       tvloadingPopular.value = false;
       update();
     }
   }
-  
+
   void callTvTopRatedMethod() async {
     try {
       tvloadingTopRated.value = true;
@@ -131,10 +116,25 @@ class AppController extends GetxController {
       if (result != null) {
         getTvTopRated.assignAll(result);
       } else {
-        print("Result for TV Top Rated is null");
+        print("Result for callTvTopRatedMethod is null");
       }
     } finally {
       tvloadingTopRated.value = false;
+      update();
+    }
+  }
+
+  void callTvAiringTodayMethod() async {
+    try {
+      tvloadingAiringToday.value = true;
+      var result = await tvServices.getTvAiringToday();
+      if (result != null) {
+        getTvAiringToday.assignAll(result);
+      } else {
+        print("Result for callTvAiringTodayMethod is null");
+      }
+    } finally {
+      tvloadingAiringToday.value = false;
       update();
     }
   }

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('Login successfully!'),
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.green[400],
                   ),
                 ),
                 Future.delayed(
@@ -49,12 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Color(0xFF1E1E1E),
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(36),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/images/logo_watchflix.png",
+                "assets/images/icon.png",
                 height: 80,
                 width: 180,
               ),
