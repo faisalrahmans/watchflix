@@ -26,7 +26,7 @@ class TvShows extends StatelessWidget {
     var popular = controller.getTvPopular;
     var topRated = controller.getTvTopRated;
 
-    final List<Widget> imageSliders = onTheAir
+    final List<Widget> imageSliders = topRated
         .map((item) => Container(
               margin: const EdgeInsets.all(5.0),
               child: ClipRRect(
@@ -73,7 +73,7 @@ class TvShows extends StatelessWidget {
       backgroundColor: const Color(0xFF1E1E1E),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1E1E1E),
-        title: Image.asset('assets/images/logo_watchflix.png'),
+        title: Image.asset('assets/images/icon.png'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -122,13 +122,13 @@ class TvShows extends StatelessWidget {
                     height: 155,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: airingToday.length,
+                      itemCount: topRated.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${airingToday[index].id}");
+                              print("${topRated[index].id}");
                             },
                             child: Container(
                               width: 105,
@@ -139,7 +139,7 @@ class TvShows extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    'https://image.tmdb.org/t/p/w185/${airingToday[index].posterPath}',
+                                    'https://image.tmdb.org/t/p/w185/${topRated[index].posterPath}',
                                     width: double.infinity,
                                     height: double.infinity,
                                     fit: BoxFit.cover,
@@ -165,13 +165,13 @@ class TvShows extends StatelessWidget {
                     height: 155,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: popular.length,
+                      itemCount: topRated.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${popular[index].id}");
+                              print("${topRated[index].id}");
                             },
                             child: Container(
                               width: 105,
@@ -182,7 +182,7 @@ class TvShows extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    'https://image.tmdb.org/t/p/w185/${popular[index].posterPath}',
+                                    'https://image.tmdb.org/t/p/w185/${topRated[index].posterPath}',
                                     width: double.infinity,
                                     height: double.infinity,
                                     fit: BoxFit.cover,
