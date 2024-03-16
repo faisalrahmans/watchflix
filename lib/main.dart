@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:watchflix/pages/abous_us.dart';
 import 'package:watchflix/pages/home.dart';
 import 'package:watchflix/pages/login_page.dart';
 import 'package:watchflix/routes/page_routes.dart';

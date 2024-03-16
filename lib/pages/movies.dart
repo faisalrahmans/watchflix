@@ -73,7 +73,7 @@ class Movies extends StatelessWidget {
       backgroundColor: Color(0xFF1E1E1E),
       appBar: AppBar(
         backgroundColor: Color(0xFF1E1E1E),
-        title: Image.asset('assets/images/logo_watchflix.png'),
+        title: Image.asset('assets/images/icon.png'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),

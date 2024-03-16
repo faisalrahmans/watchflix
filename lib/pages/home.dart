@@ -1,6 +1,8 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:watchflix/pages/abous_us.dart';
 import 'package:watchflix/pages/movies.dart';
 import 'package:watchflix/pages/tv_shows.dart';
 
@@ -26,6 +28,19 @@ class _HomeState extends State<Home> {
         child: currentScreen,
         bucket: bucket,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.to(() => AboutUsScreen(), arguments: "About Us");
+        },
+        shape: CircleBorder(),
+        child: Image.asset(
+          "assets/images/about_us.png",
+          height: 30,
+          width: 30,
+        ),
+        backgroundColor: Colors.red,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 10,

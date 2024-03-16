@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           .then((value) => ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Account created successfully!'),
-                  backgroundColor: Colors.red[400],
+                  backgroundColor: Colors.green[400],
                 ),
               ));
     } catch (e) {
@@ -38,12 +38,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: Color(0xFF1E1E1E),
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(36),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/images/logo_watchflix.png",
+                "assets/images/icon.png",
                 height: 80,
                 width: 180,
               ),
