@@ -1,10 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:watchflix/controller/appcontroller.dart';
 import 'package:watchflix/pages/login_page.dart';
-import 'package:watchflix/pages/movie_detail_page.dart';
 
 class Movies extends StatelessWidget {
   Future<void> _signOut() async {
@@ -55,7 +56,7 @@ class Movies extends StatelessWidget {
                           top: 10.0,
                           left: 10.0,
                           child: Text(
-                            '${item.title}',
+                            item.title,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16.0,

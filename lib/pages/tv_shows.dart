@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, use_key_in_widget_constructors, avoid_print
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,11 +22,11 @@ class TvShows extends StatelessWidget {
     var controller = Get.put(AppController());
 
     var airingToday = controller.getTvAiringToday;
-    var onTheAir = controller.getTvOnAir;
-    var popular = controller.getTvPopular;
+    // var onTheAir = controller.getTvOnAir;
+    // var popular = controller.getTvPopular;
     var topRated = controller.getTvTopRated;
 
-    final List<Widget> imageSliders = topRated
+    final List<Widget> imageSliders = airingToday
         .map((item) => Container(
               margin: const EdgeInsets.all(5.0),
               child: ClipRRect(
@@ -122,13 +122,13 @@ class TvShows extends StatelessWidget {
                     height: 155,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: topRated.length,
+                      itemCount: airingToday.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${topRated[index].id}");
+                              print("${airingToday[index].id}");
                             },
                             child: Container(
                               width: 105,
@@ -139,7 +139,7 @@ class TvShows extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    'https://image.tmdb.org/t/p/w185/${topRated[index].posterPath}',
+                                    'https://image.tmdb.org/t/p/w185/${airingToday[index].posterPath}',
                                     width: double.infinity,
                                     height: double.infinity,
                                     fit: BoxFit.cover,
