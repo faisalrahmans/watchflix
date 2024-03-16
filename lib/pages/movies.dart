@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:watchflix/controller/appcontroller.dart';
-import 'package:watchflix/model/movieModel.dart';
 import 'package:watchflix/pages/login_page.dart';
 import 'package:watchflix/pages/movie_detail_page.dart';
 
@@ -24,7 +23,6 @@ class Movies extends StatelessWidget {
     var nowPlayingPosts = controller.getNowPlayingPosts;
     var topratedPosts = controller.getTopratedPosts;
     var trendingPosts = controller.getTrendingPosts;
-    var detailMovie = controller.getDetailMovie;
 
     final List<Widget> imageSliders = trendingPosts
         .map((item) => Container(
@@ -130,17 +128,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => MovieDetailPage(
-                              //       movie:
-                              //           (nowPlayingPosts[index]),
-                              //     ),
-                              //   ),
-                              // );
-                              print("harus muncul");
-                              print(detailMovie);
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: nowPlayingPosts[index].id);
                             },
                             child: Container(
                               width: 105,
@@ -183,7 +172,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${topratedPosts[index].id}");
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: topratedPosts[index].id);
                             },
                             child: Container(
                               width: 105,
@@ -226,7 +216,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${trendingPosts[index].id}");
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: trendingPosts[index].id);
                             },
                             child: Container(
                               width: 105,

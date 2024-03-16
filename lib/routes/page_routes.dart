@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:watchflix/pages/login_page.dart';
+import 'package:watchflix/pages/movie_detail_page.dart';
 import 'package:watchflix/pages/movies.dart';
 import 'package:watchflix/pages/register_page.dart';
 import 'package:watchflix/pages/tv_shows.dart';
@@ -22,6 +23,10 @@ class RouteArr {
     GetPage(
       name: RouteName.tvShowPage,
       page: () => TvShows(),
+    ),
+    GetPage(
+      name: RouteName.detailMoviePage, 
+      page: () => DetailMovieScreen()
     ),
   ];
 }

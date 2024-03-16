@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-import 'package:watchflix/model/movieModel.dart';
 import 'package:watchflix/model/postmodel.dart';
 import 'package:watchflix/model/tvModel.dart';
-import 'package:watchflix/services/movie_services.dart';
 import 'package:watchflix/services/services.dart';
 import 'package:watchflix/services/tv_services.dart';
 
@@ -14,8 +12,6 @@ class AppController extends GetxController {
   var getTvOnAir = <Tvmodel>[].obs;
   var getTvPopular = <Tvmodel>[].obs;
   var getTvTopRated = <Tvmodel>[].obs;
-  var getDetailMovie = <Moviemodel>[].obs;
-  // var getTvPopular = <Moviemodel>[].obs;
   var postloadingNowPlaying = true.obs;
   var postloadingToprated = true.obs;
   var postloadingTrending = true.obs;
@@ -26,7 +22,6 @@ class AppController extends GetxController {
   var detailMovieloading = true.obs;
   Services services = Services();
   TvServices tvServices = TvServices();
-  MovieServices detailMovieServices = MovieServices();
 
   @override
   void onInit() {
@@ -38,7 +33,6 @@ class AppController extends GetxController {
     callTvOnAirMethod();
     callTvPopularMethod();
     callTvTopRatedMethod();
-    callMovieDetailMethod();
   }
 
   void callNowPlayingMethod() async {
@@ -142,21 +136,6 @@ class AppController extends GetxController {
       }
     } finally {
       tvloadingTopRated.value = false;
-      update();
-    }
-  }
-
-  void callMovieDetailMethod() async {
-    try {
-      detailMovieloading.value = true;
-      var result = await detailMovieServices.getDetail();
-      if (result != null) {
-        getDetailMovie.assignAll(result);
-      } else {
-        print("Result for Detail Movie is null");
-      }
-    } finally {
-      detailMovieloading.value = false;
       update();
     }
   }
