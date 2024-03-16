@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_print, avoid_unnecessary_containers
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -136,6 +138,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     RichText(
                       text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                         text: "Don't have an account? ",
                         children: <TextSpan>[
                           TextSpan(

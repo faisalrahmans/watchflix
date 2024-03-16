@@ -1,6 +1,7 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +23,7 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
 
   Future<void> fetchMovieDetails() async {
     final movieId = Get.arguments;
-    final url = 'https://api.themoviedb.org/3/movie/${movieId}?en-US&page=1';
+    final url = 'https://api.themoviedb.org/3/movie/$movieId?en-US&page=1';
 
     final response = await http.get(
       Uri.parse(url),
@@ -44,11 +45,24 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
 
     return Scaffold(
       backgroundColor: Color(0xFF1E1E1E),
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF1E1E1E),
+        title: Text(movieDetails?['title'] ?? '', style: TextStyle(color: Colors.white)),
+        leading: IconButton(
+          color: Colors.white,
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      ),
       body: Center(
         child: movieDetails == null
             ? Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.red), // Set warna merah di sini
+                ),
               )
             : Column(
                 children: [

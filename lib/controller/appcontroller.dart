@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:get/get.dart';
 import 'package:watchflix/model/postmodel.dart';
 import 'package:watchflix/model/tv_model.dart';
