@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Watchflix',
       theme: ThemeData(primarySwatch: Colors.red),
-      home: Home(),
+      home: SplashScreen(),
       getPages: RouteArr.pages,
     );
   }
