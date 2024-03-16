@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:watchflix/controller/appcontroller.dart';
+import 'package:watchflix/model/movieModel.dart';
 import 'package:watchflix/pages/login_page.dart';
+import 'package:watchflix/pages/movie_detail_page.dart';
 
 class Movies extends StatelessWidget {
   Future<void> _signOut() async {
@@ -22,6 +24,7 @@ class Movies extends StatelessWidget {
     var nowPlayingPosts = controller.getNowPlayingPosts;
     var topratedPosts = controller.getTopratedPosts;
     var trendingPosts = controller.getTrendingPosts;
+    var detailMovie = controller.getDetailMovie;
 
     final List<Widget> imageSliders = trendingPosts
         .map((item) => Container(
@@ -127,7 +130,17 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${nowPlayingPosts[index].id}");
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => MovieDetailPage(
+                              //       movie:
+                              //           (nowPlayingPosts[index]),
+                              //     ),
+                              //   ),
+                              // );
+                              print("harus muncul");
+                              print(detailMovie);
                             },
                             child: Container(
                               width: 105,
