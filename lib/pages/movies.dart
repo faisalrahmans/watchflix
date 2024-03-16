@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:watchflix/controller/appcontroller.dart';
 import 'package:watchflix/pages/login_page.dart';
+import 'package:watchflix/pages/movie_detail_page.dart';
 
 class Movies extends StatelessWidget {
   Future<void> _signOut() async {
@@ -127,7 +128,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${nowPlayingPosts[index].id}");
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: nowPlayingPosts[index].id);
                             },
                             child: Container(
                               width: 105,
@@ -170,7 +172,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${topratedPosts[index].id}");
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: topratedPosts[index].id);
                             },
                             child: Container(
                               width: 105,
@@ -213,7 +216,8 @@ class Movies extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
                             onTap: () {
-                              print("${trendingPosts[index].id}");
+                              Get.toNamed('/movie_detail_page',
+                                  arguments: trendingPosts[index].id);
                             },
                             child: Container(
                               width: 105,
